@@ -46,3 +46,25 @@ export const getTopRatedMovies = async (pageNumber) => {
         throw new Error("Error al obtener las películas mejor calificadas");
     }
 };
+
+export const getNextReleases = async (pageNumber) => {
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/upcoming?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
+        );
+        return response.data;
+    } catch (error) {
+        throw new Error("Error al obtener las películas mejor calificadas");
+    }
+};
+
+export const getDetailView = async (movieId) => {
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${API_KEY}&language=${LANGUAGE}`
+        );
+        return response.data;
+    } catch (error) {
+        throw new Error("Error al obtener las películas mejor calificadas");
+    }
+};
