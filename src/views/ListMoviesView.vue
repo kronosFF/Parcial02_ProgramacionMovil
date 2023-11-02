@@ -19,11 +19,6 @@
             </div>
         </div>
     </div>
-    <div class="col d-flex justify-content-center">
-        <button class="btn me-5">CARTELERA</button>
-        <button class="btn me-5">MEJOR CALIFICADAS</button>
-        <button class="btn">POPULARES</button>
-    </div>
 </template>
 
 <script>
