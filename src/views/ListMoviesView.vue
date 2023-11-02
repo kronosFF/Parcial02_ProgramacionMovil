@@ -6,13 +6,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2 col-lg-4 mt-3 pt-3 pb-3">
+            <div class="col-sm-2 col-lg-4 mt-3 pt-3 pb-3" v-for="lista in listMovies" :key="lista.id">
                 <div class="card p-2 mb-5 d-flex align-items-center">
                     <img src="" alt="" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">{{ name_movie }}</h5>
                         <hr>
                         <p class="card-text">
+                            {{ lista.title }}
                         </p>
                     </div>
                 </div>
@@ -41,7 +42,6 @@ export default {
         this.nombre = route.params.type 
 
         this.listMovies = await getListByGender(this.nombre)
-        this.name_movie = this.listMovies.target
         console.log(this.listMovies)
     },
 }
