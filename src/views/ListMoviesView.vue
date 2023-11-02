@@ -1,8 +1,13 @@
 <template>
     <div class="container mb-2">
         <div class="row d-flex justify-content-center">
-            <div class="col-sm-12">
-                <h2 class="text-center text-color-primary p-3">Listado de películas del género {{ nombre }}</h2>
+            <router-link :to="{ name: 'home' }">
+                <div class="col-sm-2 mt-5 p-3 ">
+                    <button type="button" class="btn btn-primary">Ir al inicio</button>
+                </div>
+            </router-link>
+            <div class="col-sm-10 mt-5 p-2">
+                <h2 class="text-color-primary">Listado de películas del género {{ nombre }}</h2>
             </div>
         </div>
         <div class="row">
@@ -33,22 +38,23 @@ export default {
     data() {
         return {
             nombre: '',
+            id: '',
             listMovies: [],
         }
     },
 
     async created() {
         const route = useRoute();
-        this.nombre = route.params.type 
+        this.nombre = route.params.type
+        this.id = route.params.id
 
-        this.listMovies = await getListByGender(this.nombre)
-        console.log(this.listMovies)
+        this.listMovies = await getListByGender(this.id)
     },
 
     methods: {
-        getImage(backdrop_path){
-        return (`https://image.tmdb.org/t/p/w500/${backdrop_path}`)
-    }
+        getImage(backdrop_path) {
+            return (`https://image.tmdb.org/t/p/w500/${backdrop_path}`)
+        }
     },
 }
 
