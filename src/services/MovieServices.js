@@ -75,6 +75,7 @@ export const getListByGender = async (gender_id) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE
         }&with_genres=${gender_id}`
+         
         );
         return response.data.results;
     }catch(error) {
