@@ -15,7 +15,7 @@ const routes = [
   },
   // Ruta para la lista de películas con un filtro para especificar el tipo de película
   {
-    path: "/list-movies/:type",
+    path: "/list-movies/:type/:id",
     name: "listMovies",
     component: ListMoviesView,
   },
