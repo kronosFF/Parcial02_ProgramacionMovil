@@ -13,7 +13,7 @@
       >
         <div class="card p-2 d-flex align-items-center">
           <div class="card-title">
-            <h3 class="text-center">{{ genero.name }}</h3>
+            <h3 class="text-center">{{ genero.name }} </h3>
           </div>
         </div>
       </div>
@@ -57,9 +57,9 @@ export default {
   margin: 0 auto;
 
   .card {
-    border: 1px solid #e2e2e2;
+    border: 1px solid #ff0000;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #7aedfcb4;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     &:hover {
@@ -73,8 +73,15 @@ export default {
   }
 
   h2 {
-    color: #333;
+    font-size: 45px;
+    font-family: Roboto;
     font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 6px;
+    color: #4416c4;
+    background-color: white;
     margin-bottom: 20px;
   }
 
@@ -101,7 +108,7 @@ export default {
     padding: 10px 20px;
     border: 2px solid gray;
     background-color: white;
-    color: gray;
+    color: rgb(37, 146, 255);
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s;
