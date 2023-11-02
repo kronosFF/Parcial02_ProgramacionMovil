@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MovieView from "@/views/MovieView.vue";
 import ListMoviesView from "@/views/ListMoviesView.vue";
-import DetailMovieView from "@/views/DetailMovie.vue";
+import DetailMovieView from "@/views/DetailMovieView.vue";
 import SummaryView from "@/views/SummaryView.vue";
 import gendersView from "@/views/gendersView.vue";
 import ProducerView from "@/views/ProducerView.vue";
