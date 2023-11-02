@@ -23,7 +23,9 @@
                             {{ lista.release_date }}
                         </p>
                         <hr>
-                        <button class="btn btn-success">Ver detalle</button>
+                        <router-link :to="{name: 'Detailmovie'}">
+                            <button class="btn btn-success">Ver detalle</button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -35,7 +37,8 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li @click="getPreviousPage()" class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li @click="getDataPage(pages)" class="page-item" :class="isActive(pages)" v-for="pages in totalPages()"><a class="page-link" href="#">{{ pages }}</a></li>
+                    <li @click="getDataPage(pages)" class="page-item" :class="isActive(pages)"
+                        v-for="pages in totalPages()"><a class="page-link" href="#">{{ pages }}</a></li>
                     <li @click="getNextPage()" class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>
             </nav>
@@ -114,7 +117,7 @@ export default {
             this.getDataPage(this.actualPage);
         },
 
-        isActive(numberPage){
+        isActive(numberPage) {
             //Funcion ternaria
             return numberPage == this.actualPage ? 'active' : '';
         }
