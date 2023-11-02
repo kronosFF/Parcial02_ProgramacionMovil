@@ -6,18 +6,20 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 mt-3 pt-3 pb-3" v-for="genero in generos" :key="genero.id">
-        <router-link :to="{ name: 'ListMovies', params: { type: genero.name } }">
-          <div class="card p-2 d-flex align-items-center">
-            <div class="card-title">
-              <h3 class="text-center">{{ genero.name }}</h3>
-            </div>
+      <div
+        class="col-sm-3 mt-3 pt-3 pb-3"
+        v-for="genero in generos"
+        :key="genero.id"
+      >
+        <div class="card p-2 d-flex align-items-center">
+          <div class="card-title">
+            <h3 class="text-center">{{ genero.name }}</h3>
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
     <div class="col d-flex justify-content-center">
-      <button class="btn me-5" @click="handleCartelera">CARTELERA</button>
+      <button class="btn me-5">CARTELERA</button>
       <button class="btn me-5">MEJOR CALIFICADAS</button>
       <button class="btn">POPULARES</button>
     </div>
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-import { getGenres, getMoviesInCartelera } from "@/services/MovieServices";
+import { getGenres } from "@/services/MovieServices";
 
 export default {
   name: "Inicio",
@@ -45,14 +47,6 @@ export default {
         console.error(error);
       }
     },
-    async handleCartelera() {
-      try {
-        const moviesInCartelera = await getMoviesInCartelera(1);
-        return moviesInCartelera;
-      } catch (error) {
-        console.error(error);
-      }
-    },
   },
 };
 </script>
@@ -63,7 +57,6 @@ export default {
   margin: 0 auto;
 
   .card {
-    padding: 20px;
     border: 1px solid #e2e2e2;
     border-radius: 5px;
     background-color: #f9f9f9;
@@ -87,7 +80,6 @@ export default {
 
   .row {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
@@ -107,13 +99,12 @@ export default {
 
   .btn {
     padding: 10px 20px;
-    margin-top: 20px;
+    border: 2px solid gray;
     background-color: white;
     color: gray;
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     &:hover {
       background-color: #757f75;

@@ -14,17 +14,6 @@ export const getGenres = async () => {
     }
 };
 
-export const getGenresMovies = async (genreId) => {
-    try {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${genreId}`
-        );
-        return response.data.results;
-    } catch (error) {
-        throw new Error("Error al obtener el listado de películas");
-    }
-};
-
 export const getMoviesInCartelera = async (pageNumber) => {
     try {
         const response = await axios.get(
@@ -65,7 +54,7 @@ export const getNextReleases = async (pageNumber) => {
         );
         return response.data;
     } catch (error) {
-        throw new Error("Error al obtener los proximos estrenos");
+        throw new Error("Error al obtener las películas mejor calificadas");
     }
 };
 
@@ -76,6 +65,6 @@ export const getDetailView = async (movieId) => {
         );
         return response.data;
     } catch (error) {
-        throw new Error("Error al obtener los detalles de las películas");
+        throw new Error("Error al obtener las películas mejor calificadas");
     }
 };
