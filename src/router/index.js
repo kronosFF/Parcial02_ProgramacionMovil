@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MovieView from "@/views/MovieView.vue";
 import ListMoviesView from "@/views/ListMoviesView.vue";
-import DetailMovieView from "@/views/DetailMovie.vue";
+import DetailMovieView from "@/views/DetailMovieView.vue";
 import SummaryView from "@/views/SummaryView.vue";
 import gendersView from "@/views/gendersView.vue";
 import ProducerView from "@/views/ProducerView.vue";
@@ -16,7 +16,7 @@ const routes = [
   // Ruta para la lista de películas con un filtro para especificar el tipo de película
   {
     path: "/list-movies/:type",
-    name: "ListMovies",
+    name: "listMovies",
     component: ListMoviesView,
   },
   // Ruta para la vista detallada de una película con rutas hijas
