@@ -6,16 +6,14 @@
       </div>
     </div>
     <div class="row">
-      <div
-        class="col-sm-3 mt-3 pt-3 pb-3"
-        v-for="genero in generos"
-        :key="genero.id"
-      >
-        <div class="card p-2 d-flex align-items-center">
-          <div class="card-title">
-            <h3 class="text-center">{{ genero.name }}</h3>
+      <div class="col-sm-3 mt-3 pt-3 pb-3" v-for="genero in generos" :key="genero.id">
+        <router-link :to="{name:'listMovies', params:{type:genero.name}}">
+          <div class="card p-2 d-flex align-items-center" @click="ListMoviesView">
+            <div class="card-title">
+              <h3 class="text-center">{{ genero.name }}</h3>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
     <div class="col d-flex justify-content-center">
@@ -28,6 +26,7 @@
 
 <script>
 import { getGenres } from "@/services/MovieServices";
+import ListMoviesView from "./ListMoviesView.vue";
 
 export default {
   name: "Inicio",

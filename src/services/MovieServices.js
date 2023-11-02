@@ -68,3 +68,15 @@ export const getDetailView = async (movieId) => {
         throw new Error("Error al obtener las películas mejor calificadas");
     }
 };
+
+//Servicio que filtra las peliculas segun el genero
+export const getListByGender = async (gender_id) => {
+    try{
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${gender_id}`
+        );
+        return response.data;
+    }catch(error) {
+        throw new error('No se pudo obtener las peliculas del genero seleccionado')
+    }
+}
