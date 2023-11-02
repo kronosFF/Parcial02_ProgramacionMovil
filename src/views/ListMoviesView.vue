@@ -10,10 +10,11 @@
                 <div class="card p-2 mb-5 d-flex align-items-center">
                     <img src="" alt="" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">{{ name_movie }}</h5>
+                        <img class="card-img-top" :src="getImage(lista.backdrop_path)" alt="">
+                        <h5 class="card-title">{{ lista.title }}</h5>
                         <hr>
                         <p class="card-text">
-                            {{ lista.title }}
+                            {{ lista.release_date }}
                         </p>
                     </div>
                 </div>
@@ -32,7 +33,6 @@ export default {
     data() {
         return {
             nombre: '',
-            name_movie: '',
             listMovies: [],
         }
     },
@@ -43,6 +43,12 @@ export default {
 
         this.listMovies = await getListByGender(this.nombre)
         console.log(this.listMovies)
+    },
+
+    methods: {
+        getImage(backdrop_path){
+        return (`https://image.tmdb.org/t/p/w500/${backdrop_path}`)
+    }
     },
 }
 
