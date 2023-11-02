@@ -73,9 +73,10 @@ export const getDetailView = async (movieId) => {
 export const getListByGender = async (gender_id) => {
     try{
         const response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${gender_id}`
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE
+        }&with_genres=${gender_id}`
         );
-        return response.data;
+        return response.data.results;
     }catch(error) {
         throw new error('No se pudo obtener las peliculas del genero seleccionado')
     }
