@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-sm-3 mt-3 pt-3 pb-3" v-for="genero in generos" :key="genero.id">
-        <router-link :to="{name:'listMovies', params:{type:genero.name, id:genero.id}}">
+        <router-link :to="{ name: 'listMovies', params: { type: genero.name, id: genero.id } }">
           <div class="card p-2 d-flex align-items-center" @click="ListMoviesView">
             <div class="card-title">
               <h3 class="text-center">{{ genero.name }}</h3>
