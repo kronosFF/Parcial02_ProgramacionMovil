@@ -3,7 +3,7 @@
         <div class="row d-flex justify-content-center">
             <router-link :to="{ name: 'home' }">
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
-                    <button type="button" class="btn btn-primary">Ir al inicio</button>
+                    <button type="button" class="btn btn-success">Ir al inicio</button>
                 </div>
             </router-link>
             <div class="col-sm-10 mt-5 p-2">
@@ -19,11 +19,7 @@
                         <img class="card-img-top" :src="getImage(lista.backdrop_path)" alt="">
                         <h5 class="card-title">{{ lista.title }}</h5>
                         <hr>
-                        <p class="card-text">
-                            {{ lista.release_date }}
-                        </p>
-                        <hr>
-                        <router-link :to="{name: 'Detailmovie'}">
+                        <router-link :to="{name: 'Detailmovie',params:{name:lista.title, id:lista.id}}">
                             <button class="btn btn-success">Ver detalle</button>
                         </router-link>
                     </div>
@@ -58,7 +54,6 @@ export default {
     data() {
         return {
             nombre: '',
-            id: '',
             listMovies: [],
             paginated_data: [],
             elemntsForPage: 4,
