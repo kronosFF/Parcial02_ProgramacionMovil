@@ -17,7 +17,9 @@
       </div>
     </div>
     <div class="col d-flex justify-content-center">
-      <button class="btn me-5">CARTELERA</button>
+      <router-link :to="{name: 'moviesInCartelera', params:{id:1}}">
+        <button class="btn me-5">CARTELERA</button>
+      </router-link>
       <button class="btn me-5">MEJOR CALIFICADAS</button>
       <button class="btn">POPULARES</button>
     </div>
@@ -30,14 +32,17 @@ import ListMoviesView from "./ListMoviesView.vue";
 
 export default {
   name: "Inicio",
+
   data() {
     return {
       generos: [],
     };
   },
+
   created() {
     this.fetchData();
   },
+
   methods: {
     async fetchData() {
       try {
@@ -47,6 +52,7 @@ export default {
       }
     },
   },
+
 };
 </script>
 

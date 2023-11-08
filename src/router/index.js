@@ -6,6 +6,7 @@ import SummaryView from "@/views/SummaryView.vue";
 import gendersView from "@/views/gendersView.vue";
 import ProducerView from "@/views/ProducerView.vue";
 import TrailerView from "@/views/TrailerView.vue";
+import MoviesInCartelera from "@/views/MoviesInCarteleraView.vue";
 
 const routes = [
   {
@@ -46,6 +47,12 @@ const routes = [
         component: TrailerView,
       },
     ],
+  },
+
+  {
+    path: "/moviesInCartelera/:id",
+    name: "moviesInCartelera",
+    component: MoviesInCartelera,
   },
 ];
 
