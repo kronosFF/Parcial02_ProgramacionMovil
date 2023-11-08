@@ -4,6 +4,7 @@
             <router-link :to="{ name: 'home' }">
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
                     <button type="button" class="btn btn-success">Volver al Inicio</button>
+                    <button type="button" class="btn btn-success"><b> Volver al Inicio </b> </button>
                 </div>
             </router-link>
         </div>
