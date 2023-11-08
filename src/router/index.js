@@ -6,6 +6,7 @@ import SummaryView from "@/views/SummaryView.vue";
 import gendersView from "@/views/gendersView.vue";
 import ProducerView from "@/views/ProducerView.vue";
 import TrailerView from "@/views/TrailerView.vue";
+import MoviesInCartelera from "@/views/MoviesInCarteleraView.vue";
 
 const routes = [
   {
@@ -21,31 +22,37 @@ const routes = [
   },
   // Ruta para la vista detallada de una película con rutas hijas
   {
-    path: "/detail-movie/:id",
+    path: "/detail-movie/:name/:id",
     name: "Detailmovie",
     component: DetailMovieView,
     children: [
       {
         path: "summary",
-        name: "Summary",
+        name: "summary",
         component: SummaryView,
       },
       {
         path: "genders",
-        name: "Genders",
+        name: "genders",
         component: gendersView,
       },
       {
-        path: "Producers",
-        name: "Producers",
+        path: "producer",
+        name: "producer",
         component: ProducerView,
       },
       {
-        path: "Trailer",
-        name: "Trailer",
+        path: "trailer",
+        name: "trailer",
         component: TrailerView,
       },
     ],
+  },
+
+  {
+    path: "/moviesInCartelera/:id",
+    name: "moviesInCartelera",
+    component: MoviesInCartelera,
   },
 ];
 

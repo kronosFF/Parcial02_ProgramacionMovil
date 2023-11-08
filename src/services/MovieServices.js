@@ -19,7 +19,7 @@ export const getMoviesInCartelera = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/now_playing?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas en cartelera");
     }
@@ -30,7 +30,7 @@ export const getPopularMovies = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/popular?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas populares");
     }
