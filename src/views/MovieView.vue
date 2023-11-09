@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-sm-3 mt-3 pt-3 pb-3" v-for="genero in generos" :key="genero.id">
-        <router-link :to="{name:'listMovies', params:{type:genero.name}}">
+        <router-link :to="{ name: 'listMovies', params: { type: genero.name, id: genero.id } }">
           <div class="card p-2 d-flex align-items-center" @click="ListMoviesView">
             <div class="card-title">
               <h3 class="text-center">{{ genero.name }}</h3>
@@ -17,9 +17,15 @@
       </div>
     </div>
     <div class="col d-flex justify-content-center">
-      <button class="btn me-5">CARTELERA</button>
-      <button class="btn me-5">MEJOR CALIFICADAS</button>
-      <button class="btn">POPULARES</button>
+      <router-link :to="{ name: 'moviesInCartelera', params: { id: 1 } }">
+        <button class="btn me-5">CARTELERA</button>
+      </router-link>
+      <router-link :to="{ name: 'top-rated', params: {id: 1}}">
+        <button class="btn me-5">MEJOR CALIFICADAS</button>
+      </router-link>
+      <router-link :to="{ name: 'movies-Populares', params: { id: 1 } }">
+        <button class="btn">POPULARES</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -30,14 +36,17 @@ import ListMoviesView from "./ListMoviesView.vue";
 
 export default {
   name: "Inicio",
+
   data() {
     return {
       generos: [],
     };
   },
+
   created() {
     this.fetchData();
   },
+
   methods: {
     async fetchData() {
       try {
@@ -47,6 +56,7 @@ export default {
       }
     },
   },
+
 };
 </script>
 

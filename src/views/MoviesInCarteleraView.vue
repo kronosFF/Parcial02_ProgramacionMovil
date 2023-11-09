@@ -7,7 +7,7 @@
                 </div>
             </router-link>
             <div class="col-sm-10 mt-5 p-2">
-                <h2 class="text-color-primary">Listado de películas del género {{ nombre }}</h2>
+                <h2 class="text-color-primary">Cartelera</h2>
             </div>
         </div>
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
@@ -27,7 +27,6 @@
             </div>
             <!--End card-->
         </div>
-
         <!--pagination-->
         <div class="d-flex justify-content-center">
             <nav aria-label="Page navigation example">
@@ -40,21 +39,20 @@
             </nav>
         </div>
         <!--End pagination-->
-
     </div>
 </template>
 
 <script>
 import { useRoute } from 'vue-router'
-import { getListByGender } from '@/services/MovieServices'
+import { getMoviesInCartelera } from '@/services/MovieServices'
 
 export default {
-    name: 'ListMoviesView',
+    name: 'MoviesInCarteleraView',
 
     data() {
         return {
-            nombre: '',
-            listMovies: [],
+            cartelera: [],
+            id:'',
             paginated_data: [],
             elemntsForPage: 4,
             actualPage: 1,
@@ -64,16 +62,16 @@ export default {
     //Metodo encargado de recibir el id del género que se manda por url, y ejecutar el servicio
     //de la Api que extrae las peliculas pertenecientes a ese id del genero
     async created() {
-        const route = useRoute();
-        this.nombre = route.params.type;
+        const route = useRoute()
+        this.id = route.params.id;
 
-        this.listMovies = await getListByGender(this.id);
+        this.cartelera = await getMoviesInCartelera(this.id);
     },
+
 
     mounted() {
         this.getDataPage(1);
     },
-
 
     methods: {
         //Metodo para extraer la imagen de cada pelicula
@@ -84,17 +82,16 @@ export default {
         //Metodo para calcular el total de páginas
         totalPages() {
             //Funcion ceil es para redondear el número en caso de que no sea una division exacta
-            return Math.ceil(this.listMovies.length / this.elemntsForPage)
+            return Math.ceil(this.cartelera.length / this.elemntsForPage)
         },
 
-        //Obtiene el numero de página
-        getDataPage(pageNumber) {
+        getDataPage(pageNumber){
             this.actualPage = pageNumber;
             this.paginated_data = [];
-            let init = (pageNumber * this.elemntsForPage) - this.elemntsForPage;
+            let init = (pageNumber * this.elemntsForPage) - this.elemntsForPage
             let end = (pageNumber * this.elemntsForPage);
 
-            this.paginated_data = this.listMovies.slice(init, end)
+            this.paginated_data = this.cartelera.slice(init, end)
         },
 
         getPreviousPage() {

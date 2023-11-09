@@ -19,7 +19,7 @@ export const getMoviesInCartelera = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/now_playing?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas en cartelera");
     }
@@ -30,7 +30,7 @@ export const getPopularMovies = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/popular?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas populares");
     }
@@ -41,7 +41,7 @@ export const getTopRatedMovies = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/top_rated?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas mejor calificadas");
     }
@@ -73,9 +73,11 @@ export const getDetailView = async (movieId) => {
 export const getListByGender = async (gender_id) => {
     try{
         const response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${gender_id}`
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE
+        }&with_genres=${gender_id}`
+         
         );
-        return response.data;
+        return response.data.results;
     }catch(error) {
         throw new error('No se pudo obtener las peliculas del genero seleccionado')
     }
