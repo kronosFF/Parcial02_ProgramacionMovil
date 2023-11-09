@@ -107,6 +107,8 @@ export default {
         border-radius: 5px;
         box-shadow: 3px 5px 10px #8e5347;
         background-color: whitesmoke;
+        width: 500px;
+        height: 500px;
 
     }
 
