@@ -3,18 +3,14 @@
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 justify-content-center">
             <!--Card de cada pelicula-->
             <div class="col col-12">
-                <div class="card d-flex align-items-center tarjeta">
+                <div class="card d-flex align-items-center">
                     <div class="card-body">
-                        <h3 class="title">
-                            Empresas Productoras
-                        </h3>
+                        <h3 class="title">Empresas Productoras</h3>
                         <ol class="list-group list-group" v-for="companies in production_companies" :key="companies.id">
                             <li class="list-group-item mt-2">{{ companies.name }}</li>
                         </ol>
-                        <hr>
-                        <h3 class="title">
-                            Pais de Producción 
-                        </h3>
+                        <hr />
+                        <h3 class="title">Pais de Producción</h3>
                         <ol class="list-group list-group" v-for="country in production_countries" :key="country.id">
                             <li class="list-group-item mt-2">{{ country.name }}</li>
                         </ol>
@@ -27,20 +23,20 @@
 </template>
 
 <script>
-import { getDetailView } from '@/services/MovieServices'
-import { useRoute } from 'vue-router'
+import { getDetailView } from "@/services/MovieServices";
+import { useRoute } from "vue-router";
 
 export default {
-    name: 'GendersView',
+    name: "GendersView",
 
     data() {
         return {
             production_companies: [],
             production_countries: [],
-            nombre: '',
-            id: '',
+            nombre: "",
+            id: "",
             detailMovie: [],
-        }
+        };
     },
 
     async created() {
@@ -49,27 +45,8 @@ export default {
         this.id = route.params.id;
 
         this.detailMovie = await getDetailView(this.id);
-        this.production_companies = this.detailMovie.production_companies
-        this.production_countries = this.detailMovie.production_countries
+        this.production_companies = this.detailMovie.production_companies;
+        this.production_countries = this.detailMovie.production_countries;
     },
-}
+};
 </script>
-<style scoped lang="scss">
-.tarjeta{
-    border-radius: 5px;
-    box-shadow: 3px 5px 10px #8e5347;
-    background-color: whitesmoke; 
-}
-img {
-    padding: 5px;
-}
-.card:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s;
-}
-li:hover{
-    background-color: #8e5347;
-    color: whitesmoke;
-
-}
-</style>
