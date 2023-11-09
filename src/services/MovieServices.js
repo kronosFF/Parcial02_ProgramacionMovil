@@ -71,14 +71,23 @@ export const getDetailView = async (movieId) => {
 
 //Servicio que filtra las peliculas segun el genero
 export const getListByGender = async (gender_id) => {
-    try{
+    try {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE
-        }&with_genres=${gender_id}`
-         
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${gender_id}`
         );
         return response.data.results;
-    }catch(error) {
-        throw new error('No se pudo obtener las peliculas del genero seleccionado')
+    } catch (error) {
+        throw new error("No se pudo obtener las peliculas del genero seleccionado");
     }
-}
+};
+
+export const getTrailer = async (id) => {
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${id}/videos?&api_key=${API_KEY}&language=${LANGUAGE}`
+        );
+        return response.data.results;
+    } catch (error) {
+        throw new error("No se pudo obtener el trailer de la pelicula");
+    }
+};
