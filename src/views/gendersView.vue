@@ -17,19 +17,34 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { getDetailView } from "@/services/MovieServices";
 import { useRoute } from "vue-router";
 
 export default {
     name: "GendersView",
+=======
+import { getDetailView } from '@/services/MovieServices'
+import { useRoute } from 'vue-router'
+
+export default {
+    name: 'GendersView',
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
 
     data() {
         return {
             genres: [],
+<<<<<<< HEAD
             nombre: "",
             id: "",
             detailMovie: [],
         };
+=======
+            nombre: '',
+            id: '',
+            detailMovie: [],
+        }
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
     },
 
     async created() {
@@ -38,7 +53,14 @@ export default {
         this.id = route.params.id;
 
         this.detailMovie = await getDetailView(this.id);
+<<<<<<< HEAD
         this.genres = this.detailMovie.genres;
     },
 };
 </script>
+=======
+        this.genres = this.detailMovie.genres
+    },
+}
+</script>
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819

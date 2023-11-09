@@ -7,10 +7,14 @@
     </div>
     <div class="row">
       <div class="col-sm-3 mt-3 pt-3 pb-3" v-for="genero in generos" :key="genero.id">
+<<<<<<< HEAD
         <router-link :to="{
           name: 'listMovies',
           params: { type: genero.name, id: genero.id },
         }">
+=======
+        <router-link :to="{ name: 'listMovies', params: { type: genero.name, id: genero.id } }">
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
           <div class="card p-2 d-flex align-items-center" @click="ListMoviesView">
             <div class="card-title">
               <h3 class="text-center">{{ genero.name }}</h3>
@@ -23,7 +27,11 @@
       <router-link :to="{ name: 'moviesInCartelera', params: { id: 1 } }">
         <button class="btn me-5">CARTELERA</button>
       </router-link>
+<<<<<<< HEAD
       <router-link :to="{ name: 'top-rated', params: { id: 1 } }">
+=======
+      <router-link :to="{ name: 'top-rated', params: {id: 1}}">
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         <button class="btn me-5">MEJOR CALIFICADAS</button>
       </router-link>
       <router-link :to="{ name: 'movies-Populares', params: { id: 1 } }">
@@ -59,6 +67,7 @@ export default {
       }
     },
   },
+
 };
 </script>
 

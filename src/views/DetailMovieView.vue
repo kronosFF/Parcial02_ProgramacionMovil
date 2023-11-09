@@ -2,16 +2,23 @@
     <div class="container mb-2">
         <div class="row d-flex justify-content-center">
             <router-link :to="{ name: 'home' }">
+<<<<<<< HEAD
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3">
                     <button type="button" class="btn btn-success">
                         Volver al Inicio
                     </button>
+=======
+                <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
+                    <button type="button" class="btn btn-success">Volver al Inicio</button>
+                    <button type="button" class="btn btn-success"><b> Volver al Inicio </b> </button>
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
                 </div>
             </router-link>
         </div>
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 justify-content-center">
             <!--Card de cada pelicula-->
             <div class="col col-12 mt-3 pt-3 pb-3">
+<<<<<<< HEAD
                 <div class="card p-2 mx-5 mb-5 d-flex align-items-center">
                     <img src="" alt="" class="card-img-top" />
                     <div class="card-body">
@@ -34,6 +41,21 @@
                         <button class="btn btn-outline-dark mx-2" @click="goToTrailer()">
                             Trailer
                         </button>
+=======
+                <div class="card p-2 mx-5  mb-5 d-flex align-items-center">
+                    <img src="" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <img class="card-img-top" :src="getImage(detailMovie.backdrop_path)" alt="">
+                        <h5 class="card-title">{{ nombre }}</h5>
+                        <hr>
+                        <p class="card-text">
+                            {{ formatDate() }}
+                        </p>
+                        <hr>
+                        <button class="btn btn-outline-success mx-2" @click="goToSummary()">Descripción</button>
+                        <button class="btn btn-outline-primary" @click="goToGenders()">Géneros</button>
+                        <button class="btn btn-outline-dark mx-2" @click="goToProducer()">País | Productoras</button>
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
                     </div>
                 </div>
                 <!--End card-->
@@ -47,6 +69,7 @@
     </div>
 </template>
 
+<<<<<<< HEAD
 <script>
 import { useRoute } from "vue-router";
 import { getDetailView } from "@/services/MovieServices";
@@ -61,6 +84,23 @@ export default {
             detailMovie: [],
             fecha: [],
         };
+=======
+
+<script>
+import { useRoute } from 'vue-router'
+import { getDetailView } from '@/services/MovieServices'
+
+export default {
+    name: 'ListMoviesView',
+
+    data() {
+        return {
+            nombre: '',
+            id: '',
+            detailMovie: [],
+            fecha: [],
+        }
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
     },
 
     //Metodo encargado de recibir el id del género que se manda por url, y ejecutar el servicio
@@ -76,12 +116,17 @@ export default {
 
     methods: {
         getImage(backdrop_path) {
+<<<<<<< HEAD
             return `https://image.tmdb.org/t/p/w500/${backdrop_path}`;
+=======
+            return (`https://image.tmdb.org/t/p/w500/${backdrop_path}`)
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         },
 
         formatDate() {
             var fecha = this.fecha;
 
+<<<<<<< HEAD
             if (typeof fecha === "string") {
                 // Dividir la fecha en sus componentes
                 var components = fecha.split("-");
@@ -120,6 +165,45 @@ export default {
         },
     },
 };
+=======
+            // Dividir la fecha en sus componentes
+            var components = fecha.split("-");
+
+            // Crear una nueva fecha en formato DD-MM-AA
+            var format_date = components[2] + "-" + components[1] + "-" + components[0];
+
+            return (format_date)
+
+        },
+
+        goToSummary(){
+            this.$router.push(
+                {
+                    name: 'summary'
+                }
+            )
+        },
+
+        goToGenders(){
+            this.$router.push(
+                {
+                    name: 'genders'
+                }
+            )
+        },
+
+        goToProducer(){
+            this.$router.push(
+                {
+                    name: 'producer'
+                }
+            )
+        }
+    },
+
+}
+
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
 </script>
 
 <style scoped lang="scss">
@@ -183,4 +267,8 @@ export default {
         }
     }
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819

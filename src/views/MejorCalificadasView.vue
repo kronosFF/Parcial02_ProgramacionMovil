@@ -2,7 +2,11 @@
     <div class="container mb-2 body">
         <div class="row d-flex justify-content-center mb-3">
             <router-link :to="{ name: 'home' }">
+<<<<<<< HEAD
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3">
+=======
+                <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
                     <button type="button" class="btn btn-success">Ir al inicio</button>
                 </div>
             </router-link>
@@ -11,6 +15,7 @@
             </div>
         </div>
         <div class="row justify-content-center">
+<<<<<<< HEAD
             <div class="col col-sm-2 col-md-2 col-lg-3 justify-content-center" v-for="lista in paginated_data"
                 :key="lista.id">
                 <div class="card mb-4" style="width: 18rem">
@@ -23,6 +28,16 @@
                             name: 'Detailmovie',
                             params: { name: lista.title, id: lista.id },
                         }">
+=======
+            <div class="col col-sm-2 col-md-2 col-lg-3 justify-content-center" v-for="lista in paginated_data" :key="lista.id">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img :src="getImage(lista.backdrop_path)" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <hr>
+                        <h5 class="card-title">{{ lista.title }}</h5>
+                        <hr>
+                        <router-link :to="{ name: 'Detailmovie', params: { name: lista.title, id: lista.id } }">
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
                             <button class="btn btn-success">Ver detalle</button>
                         </router-link>
                     </div>
@@ -34,6 +49,7 @@
         <div class="d-flex justify-content-center">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
+<<<<<<< HEAD
                     <li @click="getPreviousPage()" class="page-item">
                         <a class="page-link" href="#">Previous</a>
                     </li>
@@ -44,6 +60,12 @@
                     <li @click="getNextPage()" class="page-item">
                         <a class="page-link" href="#">Next</a>
                     </li>
+=======
+                    <li @click="getPreviousPage()" class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li @click="getDataPage(pages)" class="page-item" :class="isActive(pages)"
+                        v-for="pages in totalPages()"><a class="page-link" href="#">{{ pages }}</a></li>
+                    <li @click="getNextPage()" class="page-item"><a class="page-link" href="#">Next</a></li>
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
                 </ul>
             </nav>
         </div>
@@ -52,31 +74,55 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { useRoute } from "vue-router";
 import { getTopRatedMovies } from "@/services/MovieServices";
 
 export default {
     name: "PopularView",
+=======
+import { useRoute } from 'vue-router'
+import { getTopRatedMovies } from '@/services/MovieServices'
+
+export default {
+    name: 'PopularView',
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
 
     data() {
         return {
             top: [],
+<<<<<<< HEAD
             id: "",
             paginated_data: [],
             elemntsForPage: 4,
             actualPage: 1,
         };
+=======
+            id: '',
+            paginated_data: [],
+            elemntsForPage: 4,
+            actualPage: 1,
+        }
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
     },
 
     //Metodo encargado de recibir el id del género que se manda por url, y ejecutar el servicio
     //de la Api que extrae las peliculas pertenecientes a ese id del genero
     async created() {
+<<<<<<< HEAD
         const route = useRoute();
+=======
+        const route = useRoute()
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         this.id = route.params.id;
 
         this.top = await getTopRatedMovies(this.id);
     },
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
     mounted() {
         this.getDataPage(1);
     },
@@ -84,22 +130,37 @@ export default {
     methods: {
         //Metodo para extraer la imagen de cada pelicula
         getImage(backdrop_path) {
+<<<<<<< HEAD
             return `https://image.tmdb.org/t/p/w500/${backdrop_path}`;
+=======
+            return (`https://image.tmdb.org/t/p/w500/${backdrop_path}`)
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         },
 
         //Metodo para calcular el total de páginas
         totalPages() {
             //Funcion ceil es para redondear el número en caso de que no sea una division exacta
+<<<<<<< HEAD
             return Math.ceil(this.top.length / this.elemntsForPage);
+=======
+            return Math.ceil(this.top.length / this.elemntsForPage)
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         },
 
         getDataPage(pageNumber) {
             this.actualPage = pageNumber;
             this.paginated_data = [];
+<<<<<<< HEAD
             let init = pageNumber * this.elemntsForPage - this.elemntsForPage;
             let end = pageNumber * this.elemntsForPage;
 
             this.paginated_data = this.top.slice(init, end);
+=======
+            let init = (pageNumber * this.elemntsForPage) - this.elemntsForPage
+            let end = (pageNumber * this.elemntsForPage);
+
+            this.paginated_data = this.top.slice(init, end)
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         },
 
         getPreviousPage() {
@@ -118,12 +179,23 @@ export default {
 
         isActive(numberPage) {
             //Funcion ternaria
+<<<<<<< HEAD
             return numberPage == this.actualPage ? "active" : "";
         },
     },
 };
 </script>
 
+=======
+            return numberPage == this.actualPage ? 'active' : '';
+        }
+    },
+}
+
+</script>
+
+
+>>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
 <style scoped lang="scss">
 .container {
     max-width: 1450px;
