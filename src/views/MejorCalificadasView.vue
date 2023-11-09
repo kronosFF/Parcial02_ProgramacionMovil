@@ -1,32 +1,31 @@
 <template>
-    <div class="container mb-2">
-        <div class="row d-flex justify-content-center">
+    <div class="container mb-2 body">
+        <div class="row d-flex justify-content-center mb-3">
             <router-link :to="{ name: 'home' }">
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
                     <button type="button" class="btn btn-success">Ir al inicio</button>
                 </div>
             </router-link>
             <div class="col-sm-10 mt-5 p-2">
-                <h2 class="text-color-primary">Cartelera</h2>
+                <h2 class="text-color-primary">Mejor Calificadas</h2>
             </div>
         </div>
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
-            <!--Card de cada pelicula-->
-            <div class="col mt-3 pt-3 pb-3" v-for="lista in paginated_data" :key="lista.id">
-                <div class="card p-2 mx-5  mb-5 d-flex align-items-center">
-                    <img src="" alt="" class="card-img-top">
+        <div class="row justify-content-center">
+            <div class="col col-sm-2 col-md-2 col-lg-3 justify-content-center" v-for="lista in paginated_data" :key="lista.id">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img :src="getImage(lista.backdrop_path)" alt="" class="card-img-top">
                     <div class="card-body">
-                        <img class="card-img-top" :src="getImage(lista.backdrop_path)" alt="">
+                        <hr>
                         <h5 class="card-title">{{ lista.title }}</h5>
                         <hr>
-                        <router-link :to="{name: 'Detailmovie',params:{name:lista.title, id:lista.id}}">
+                        <router-link :to="{ name: 'Detailmovie', params: { name: lista.title, id: lista.id } }">
                             <button class="btn btn-success">Ver detalle</button>
                         </router-link>
                     </div>
                 </div>
             </div>
-            <!--End card-->
         </div>
+
         <!--pagination-->
         <div class="d-flex justify-content-center">
             <nav aria-label="Page navigation example">
@@ -44,15 +43,15 @@
 
 <script>
 import { useRoute } from 'vue-router'
-import { getMoviesInCartelera } from '@/services/MovieServices'
+import { getTopRatedMovies } from '@/services/MovieServices'
 
 export default {
-    name: 'MoviesInCarteleraView',
+    name: 'PopularView',
 
     data() {
         return {
-            cartelera: [],
-            id:'',
+            top: [],
+            id: '',
             paginated_data: [],
             elemntsForPage: 4,
             actualPage: 1,
@@ -65,7 +64,7 @@ export default {
         const route = useRoute()
         this.id = route.params.id;
 
-        this.cartelera = await getMoviesInCartelera(this.id);
+        this.top = await getTopRatedMovies(this.id);
     },
 
 
@@ -82,16 +81,16 @@ export default {
         //Metodo para calcular el total de páginas
         totalPages() {
             //Funcion ceil es para redondear el número en caso de que no sea una division exacta
-            return Math.ceil(this.cartelera.length / this.elemntsForPage)
+            return Math.ceil(this.top.length / this.elemntsForPage)
         },
 
-        getDataPage(pageNumber){
+        getDataPage(pageNumber) {
             this.actualPage = pageNumber;
             this.paginated_data = [];
             let init = (pageNumber * this.elemntsForPage) - this.elemntsForPage
             let end = (pageNumber * this.elemntsForPage);
 
-            this.paginated_data = this.cartelera.slice(init, end)
+            this.paginated_data = this.top.slice(init, end)
         },
 
         getPreviousPage() {
