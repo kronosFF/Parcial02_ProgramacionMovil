@@ -19,7 +19,7 @@
                         <hr>
                         <h5 class="card-title">{{ lista.title }}</h5>
                         <hr>
-                        <router-link :to="{ name: 'Detailmovie' }">
+                        <router-link :to="{ name: 'Detailmovie', params:{name: lista.title, id: lista.id} }">
                             <button class="btn">Ver detalle</button>
                         </router-link>
                     </div>
@@ -71,6 +71,7 @@ export default {
         this.id = route.params.id;
 
         this.listMovies = await getListByGender(this.id);
+        console.log(this.listMovies)
     },
 
     mounted() {
