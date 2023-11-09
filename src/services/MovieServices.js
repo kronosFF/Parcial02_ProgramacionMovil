@@ -3,6 +3,30 @@ import axios from "axios";
 const API_KEY = "492d218f089fd8c20e9c3a945b482a9f";
 const LANGUAGE = "es-CO";
 
+function formatRelaseDate(original_date){
+    let months = [
+        { id: 1, nombre: 'Enero' },
+        { id: 2, nombre: 'Febrero' },
+        { id: 3, nombre: 'Marzo' },
+        { id: 4, nombre: 'Abril' },
+        { id: 5, nombre: 'Mayo' },
+        { id: 6, nombre: 'Junio' },
+        { id: 7, nombre: 'Julio' },
+        { id: 8, nombre: 'Agosto' },
+        { id: 9, nombre: 'Septiembre' },
+        { id: 10, nombre: 'Octubre' },
+        { id: 11, nombre: 'Noviembre' },
+        { id: 12, nombre: 'Diciembre' },
+    ]
+
+    let array_date = original_date.split("-");
+    let year = array_date[0]
+    let month_id = array_date[1]
+    let month = months.find(element => {return element.id == month_id})
+    let day = array_date[2]
+    return '${day} de ${month.name} de ${year}'
+}
+
 export const getGenres = async () => {
     try {
         const response = await axios.get(

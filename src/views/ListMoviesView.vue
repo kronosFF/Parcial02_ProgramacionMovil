@@ -20,7 +20,7 @@
                         <h5 class="card-title">{{ lista.title }}</h5>
                         <hr>
                         <router-link :to="{name: 'Detailmovie',params:{name:lista.title, id:lista.id}}">
-                            <button class="btn btn-success">Ver detalle</button>
+                            <button class="btn btn-outline-success">Ver detalle</button>
                         </router-link>
                     </div>
                 </div>
