@@ -14,23 +14,12 @@ export const getGenres = async () => {
     }
 };
 
-export const getGenresMovies = async (genreId) => {
-    try {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${genreId}`
-        );
-        return response.data.results;
-    } catch (error) {
-        throw new Error("Error al obtener el listado de películas");
-    }
-};
-
 export const getMoviesInCartelera = async (pageNumber) => {
     try {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/now_playing?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas en cartelera");
     }
@@ -41,7 +30,7 @@ export const getPopularMovies = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/popular?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas populares");
     }
@@ -52,7 +41,7 @@ export const getTopRatedMovies = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/top_rated?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas mejor calificadas");
     }
@@ -65,7 +54,7 @@ export const getNextReleases = async (pageNumber) => {
         );
         return response.data;
     } catch (error) {
-        throw new Error("Error al obtener los proximos estrenos");
+        throw new Error("Error al obtener las películas mejor calificadas");
     }
 };
 
@@ -76,6 +65,29 @@ export const getDetailView = async (movieId) => {
         );
         return response.data;
     } catch (error) {
-        throw new Error("Error al obtener los detalles de las películas");
+        throw new Error("Error al obtener las películas mejor calificadas");
+    }
+};
+
+//Servicio que filtra las peliculas segun el genero
+export const getListByGender = async (gender_id) => {
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${LANGUAGE}&with_genres=${gender_id}`
+        );
+        return response.data.results;
+    } catch (error) {
+        throw new error("No se pudo obtener las peliculas del genero seleccionado");
+    }
+};
+
+export const getTrailer = async (id) => {
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${id}/videos?&api_key=${API_KEY}&language=${LANGUAGE}`
+        );
+        return response.data.results;
+    } catch (error) {
+        throw new error("No se pudo obtener el trailer de la pelicula");
     }
 };

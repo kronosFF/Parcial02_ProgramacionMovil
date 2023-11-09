@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MovieView from "@/views/MovieView.vue";
 import ListMoviesView from "@/views/ListMoviesView.vue";
-import DetailMovieView from "@/views/DetailMovie.vue";
+import DetailMovieView from "@/views/DetailMovieView.vue";
 import SummaryView from "@/views/SummaryView.vue";
 import gendersView from "@/views/gendersView.vue";
 import ProducerView from "@/views/ProducerView.vue";
 import TrailerView from "@/views/TrailerView.vue";
+import MoviesInCartelera from "@/views/MoviesInCarteleraView.vue";
+import PopularMovies from "@/views/PopularView.vue";
+import MejorCalificadas from "@/views/MejorCalificadasView.vue";
 
 const routes = [
   {
@@ -15,37 +18,55 @@ const routes = [
   },
   // Ruta para la lista de películas con un filtro para especificar el tipo de película
   {
-    path: "/list-movies/:type",
-    name: "ListMovies",
+    path: "/list-movies/:type/:id",
+    name: "listMovies",
     component: ListMoviesView,
   },
   // Ruta para la vista detallada de una película con rutas hijas
   {
-    path: "/detail-movie/:id",
+    path: "/detail-movie/:name/:id",
     name: "Detailmovie",
     component: DetailMovieView,
     children: [
       {
         path: "summary",
-        name: "Summary",
+        name: "summary",
         component: SummaryView,
       },
       {
         path: "genders",
-        name: "Genders",
+        name: "genders",
         component: gendersView,
       },
       {
-        path: "Producers",
-        name: "Producers",
+        path: "producer",
+        name: "producer",
         component: ProducerView,
       },
       {
-        path: "Trailer",
-        name: "Trailer",
+        path: "trailer",
+        name: "trailer",
         component: TrailerView,
       },
     ],
+  },
+
+  {
+    path: "/moviesInCartelera/:id",
+    name: "moviesInCartelera",
+    component: MoviesInCartelera,
+  },
+
+  {
+    path: "/movies-Populares/:id",
+    name: "movies-Populares",
+    component: PopularMovies,
+  },
+
+  {
+    path: "/top-rated/:id",
+    name: "top-rated",
+    component: MejorCalificadas,
   },
 ];
 
