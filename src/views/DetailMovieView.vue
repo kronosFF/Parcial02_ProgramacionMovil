@@ -2,27 +2,16 @@
     <div class="container mb-2">
         <div class="row d-flex justify-content-center">
             <router-link :to="{ name: 'home' }">
-<<<<<<< HEAD
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3">
                     <button type="button" class="btn btn-success">
                         Volver al Inicio
                     </button>
-=======
-                <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
-<<<<<<< HEAD
-                    <button type="button" class="btn btn-success">Volver al Inicio</button>
-                    <button type="button" class="btn btn-success"><b> Volver al Inicio </b> </button>
->>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
-=======
-                    <button type="button" class="btn ">Volver al Inicio</button>
->>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
                 </div>
             </router-link>
         </div>
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 justify-content-center">
             <!--Card de cada pelicula-->
             <div class="col col-12 mt-3 pt-3 pb-3">
-<<<<<<< HEAD
                 <div class="card p-2 mx-5 mb-5 d-flex align-items-center">
                     <img src="" alt="" class="card-img-top" />
                     <div class="card-body">
@@ -45,27 +34,6 @@
                         <button class="btn btn-outline-dark mx-2" @click="goToTrailer()">
                             Trailer
                         </button>
-=======
-                <div class="card p-2 mx-5  mb-5 d-flex align-items-center">
-                    <img src="" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <img class="card-img-top" :src="getImage(detailMovie.backdrop_path)" alt="">
-                        <h5 class="card-title">{{ nombre }}</h5>
-                        <hr>
-                        <p class="card-text">
-                            {{ fecha }}
-                        </p>
-                        <hr>
-<<<<<<< HEAD
-                        <button class="btn btn-outline-success mx-2" @click="goToSummary()">Descripción</button>
-                        <button class="btn btn-outline-primary" @click="goToGenders()">Géneros</button>
-                        <button class="btn btn-outline-dark mx-2" @click="goToProducer()">País | Productoras</button>
->>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
-=======
-                        <button class="btn mx-2" @click="goToSummary()">Descripción</button>
-                        <button class="btn " @click="goToGenders()">Géneros</button>
-                        <button class="btn mx-2" @click="goToProducer()">País | Productoras</button>
->>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
                     </div>
                 </div>
                 <!--End card-->
@@ -79,7 +47,6 @@
     </div>
 </template>
 
-<<<<<<< HEAD
 <script>
 import { useRoute } from "vue-router";
 import { getDetailView } from "@/services/MovieServices";
@@ -94,23 +61,6 @@ export default {
             detailMovie: [],
             fecha: [],
         };
-=======
-
-<script>
-import { useRoute } from 'vue-router'
-import { getDetailView } from '@/services/MovieServices'
-
-export default {
-    name: 'ListMoviesView',
-
-    data() {
-        return {
-            nombre: '',
-            id: '',
-            detailMovie: [],
-            fecha: [],
-        }
->>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
     },
 
     //Metodo encargado de recibir el id del género que se manda por url, y ejecutar el servicio
@@ -126,18 +76,12 @@ export default {
 
     methods: {
         getImage(backdrop_path) {
-<<<<<<< HEAD
             return `https://image.tmdb.org/t/p/w500/${backdrop_path}`;
-=======
-            return (`https://image.tmdb.org/t/p/w500/${backdrop_path}`)
->>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         },
 
-<<<<<<< HEAD
         formatDate() {
             var fecha = this.fecha;
 
-<<<<<<< HEAD
             if (typeof fecha === "string") {
                 // Dividir la fecha en sus componentes
                 var components = fecha.split("-");
@@ -176,48 +120,6 @@ export default {
         },
     },
 };
-=======
-            // Dividir la fecha en sus componentes
-            var components = fecha.split("-");
-
-            // Crear una nueva fecha en formato DD-MM-AA
-            var format_date = components[2] + "-" + components[1] + "-" + components[0];
-
-            return (format_date)
-
-        },
-
-        goToSummary(){
-=======
-        goToSummary() {
->>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
-            this.$router.push(
-                {
-                    name: 'summary'
-                }
-            )
-        },
-
-        goToGenders() {
-            this.$router.push(
-                {
-                    name: 'genders'
-                }
-            )
-        },
-
-        goToProducer() {
-            this.$router.push(
-                {
-                    name: 'producer'
-                }
-            )
-        }
-    },
-
-}
-
->>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
 </script>
 
 <style scoped lang="scss">
@@ -226,68 +128,59 @@ export default {
     margin: 0 auto;
 
     .card {
+        border: 1px solid #e2e2e2;
         border-radius: 5px;
-        box-shadow: 3px 5px 10px #8e5347;
-        background-color: whitesmoke;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+        &:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
+        }
+
+        .card-title {
+            padding: 10px 0;
+        }
     }
 
-    img {
-        padding: 5px;
+    h2 {
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 20px;
     }
 
-    .card:hover {
-        transform: translateY(-5px);
-        transition: transform 0.3s;
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+
+        .col-sm-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding-right: 15px;
+            padding-left: 15px;
+
+            @media (max-width: 768px) {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
     }
 
-h2 {
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+    .btn {
+        padding: 10px 20px;
+        border: 2px solid gray;
+        background-color: white;
+        color: gray;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s;
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-
-    .col-sm-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        @media (max-width: 768px) {
-            flex: 0 0 50%;
-            max-width: 50%;
+        &:hover {
+            background-color: #757f75;
+            color: white;
         }
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
-=======
-
-.btn {
-    padding: 10px 20px;
-    color: whitesmoke;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 5px;
-    background-color: #8e5347;
-
-    &:hover {
-        background-color: whitesmoke;
-        color: #8e5347;
-        border: 2px solid #8e5347;
-    }
-}
-
-}
-</style>
->>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
