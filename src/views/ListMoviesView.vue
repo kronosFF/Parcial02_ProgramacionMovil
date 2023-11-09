@@ -14,7 +14,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col col-sm-2 col-md-2 col-lg-3 justify-content-center" v-for="lista in listMovies" :key="lista.id">
+            <div class="col col-sm-2 col-md-2 col-lg-3 justify-content-center" v-for="lista in paginated_data" :key="lista.id">
                 <div class="card mb-4" style="width: 20rem">
                     <img :src="getImage(lista.backdrop_path)" class="card-img-top" alt="..." />
                     <div class="card-body">
