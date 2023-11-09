@@ -17,11 +17,15 @@
       </div>
     </div>
     <div class="col d-flex justify-content-center">
-      <router-link :to="{name: 'moviesInCartelera', params:{id:1}}">
+      <router-link :to="{ name: 'moviesInCartelera', params: { id: 1 } }">
         <button class="btn me-5">CARTELERA</button>
       </router-link>
-      <button class="btn me-5">MEJOR CALIFICADAS</button>
-      <button class="btn">POPULARES</button>
+      <router-link :to="{ name: 'top-rated', params: {id: 1}}">
+        <button class="btn me-5">MEJOR CALIFICADAS</button>
+      </router-link>
+      <router-link :to="{ name: 'movies-Populares', params: { id: 1 } }">
+        <button class="btn">POPULARES</button>
+      </router-link>
     </div>
   </div>
 </template>

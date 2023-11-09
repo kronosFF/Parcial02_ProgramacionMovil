@@ -7,6 +7,8 @@ import gendersView from "@/views/gendersView.vue";
 import ProducerView from "@/views/ProducerView.vue";
 import TrailerView from "@/views/TrailerView.vue";
 import MoviesInCartelera from "@/views/MoviesInCarteleraView.vue";
+import PopularMovies from "@/views/PopularView.vue";
+import MejorCalificadas from "@/views/MejorCalificadasView.vue";
 
 const routes = [
   {
@@ -53,6 +55,18 @@ const routes = [
     path: "/moviesInCartelera/:id",
     name: "moviesInCartelera",
     component: MoviesInCartelera,
+  },
+
+  {
+    path: "/movies-Populares/:id",
+    name: "movies-Populares",
+    component: PopularMovies,
+  },
+
+  {
+    path: "/top-rated/:id",
+    name: "top-rated",
+    component: MejorCalificadas,
   },
 ];
 

@@ -41,7 +41,7 @@ export const getTopRatedMovies = async (pageNumber) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/top_rated?page=${pageNumber}&api_key=${API_KEY}&language=${LANGUAGE}`
         );
-        return response.data;
+        return response.data.results;
     } catch (error) {
         throw new Error("Error al obtener las películas mejor calificadas");
     }
