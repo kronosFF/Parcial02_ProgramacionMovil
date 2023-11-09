@@ -9,9 +9,13 @@
                     </button>
 =======
                 <div class="col-sm-1 col-md-3 col-lg-4 mt-5 p-3 ">
+<<<<<<< HEAD
                     <button type="button" class="btn btn-success">Volver al Inicio</button>
                     <button type="button" class="btn btn-success"><b> Volver al Inicio </b> </button>
 >>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
+=======
+                    <button type="button" class="btn ">Volver al Inicio</button>
+>>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
                 </div>
             </router-link>
         </div>
@@ -49,13 +53,19 @@
                         <h5 class="card-title">{{ nombre }}</h5>
                         <hr>
                         <p class="card-text">
-                            {{ formatDate() }}
+                            {{ fecha }}
                         </p>
                         <hr>
+<<<<<<< HEAD
                         <button class="btn btn-outline-success mx-2" @click="goToSummary()">Descripción</button>
                         <button class="btn btn-outline-primary" @click="goToGenders()">Géneros</button>
                         <button class="btn btn-outline-dark mx-2" @click="goToProducer()">País | Productoras</button>
 >>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
+=======
+                        <button class="btn mx-2" @click="goToSummary()">Descripción</button>
+                        <button class="btn " @click="goToGenders()">Géneros</button>
+                        <button class="btn mx-2" @click="goToProducer()">País | Productoras</button>
+>>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
                     </div>
                 </div>
                 <!--End card-->
@@ -123,6 +133,7 @@ export default {
 >>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
         },
 
+<<<<<<< HEAD
         formatDate() {
             var fecha = this.fecha;
 
@@ -177,6 +188,9 @@ export default {
         },
 
         goToSummary(){
+=======
+        goToSummary() {
+>>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
             this.$router.push(
                 {
                     name: 'summary'
@@ -184,7 +198,7 @@ export default {
             )
         },
 
-        goToGenders(){
+        goToGenders() {
             this.$router.push(
                 {
                     name: 'genders'
@@ -192,7 +206,7 @@ export default {
             )
         },
 
-        goToProducer(){
+        goToProducer() {
             this.$router.push(
                 {
                     name: 'producer'
@@ -212,63 +226,68 @@ export default {
     margin: 0 auto;
 
     .card {
-        border: 1px solid #e2e2e2;
         border-radius: 5px;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 3px 5px 10px #8e5347;
+        background-color: whitesmoke;
 
-        &:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s;
-        }
-
-        .card-title {
-            padding: 10px 0;
-        }
     }
 
-    h2 {
-        color: #333;
-        font-weight: bold;
-        margin-bottom: 20px;
+    img {
+        padding: 5px;
     }
 
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        margin-right: -15px;
-        margin-left: -15px;
-
-        .col-sm-3 {
-            flex: 0 0 25%;
-            max-width: 25%;
-            padding-right: 15px;
-            padding-left: 15px;
-
-            @media (max-width: 768px) {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-        }
+    .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s;
     }
 
-    .btn {
-        padding: 10px 20px;
-        border: 2px solid gray;
-        background-color: white;
-        color: gray;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: all 0.3s;
+h2 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
-        &:hover {
-            background-color: #757f75;
-            color: white;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .col-sm-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        @media (max-width: 768px) {
+            flex: 0 0 50%;
+            max-width: 50%;
         }
     }
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 </style>
 =======
 </style>
 >>>>>>> 8e47f2cdf0862bafc000fff044e51fddc1ef8819
+=======
+
+.btn {
+    padding: 10px 20px;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+    background-color: #8e5347;
+
+    &:hover {
+        background-color: whitesmoke;
+        color: #8e5347;
+        border: 2px solid #8e5347;
+    }
+}
+
+}
+</style>
+>>>>>>> 5a7e3316ecea703a032cbba23b9b90b97509bb4a
