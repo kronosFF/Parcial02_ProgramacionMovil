@@ -79,19 +79,27 @@ export default {
             return `https://image.tmdb.org/t/p/w500/${backdrop_path}`;
         },
 
+        
         formatDate() {
             var fecha = this.fecha;
-
-            if (typeof fecha === "string") {
-                // Dividir la fecha en sus componentes
+            if (typeof fecha === 'string') {
                 var components = fecha.split("-");
-                // Crear una nueva fecha en formato DD-MM-AA
-                var format_date =
-                    components[2] + "-" + components[1] + "-" + components[0];
-                return format_date;
+                var day = components[2];
+                var monthNumber = parseInt(components[1]);
+                var year = components[0];
+
+                // Arreglo de nombres de meses
+                var monthNames = [
+                'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                ];
+
+                // Obtener el nombre del mes correspondiente
+                var monthName = monthNames[monthNumber - 1]; // Restamos 1 porque los índices de los arreglos comienzan en 0
+
+                return `${day} de ${monthName} de ${year}`;
             } else {
-                // Manejar el caso en el que this.fecha no sea una cadena
-                return "Fecha no disponible";
+                return "Invalid date format";
             }
         },
 
