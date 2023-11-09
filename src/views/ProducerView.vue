@@ -67,4 +67,9 @@ img {
     transform: translateY(-5px);
     transition: transform 0.3s;
 }
+li:hover{
+    background-color: #8e5347;
+    color: whitesmoke;
+
+}
 </style>
