@@ -3,7 +3,7 @@
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2 justify-content-center">
             <!--Card de cada pelicula-->
             <div class="col col-12">
-                <div class="card d-flex align-items-center">
+                <div class="card d-flex align-items-center tarjeta">
                     <div class="card-body">
                         <ol class="list-group list-group" v-for="generos in genres" :key="generos.id">
                             <li class="list-group-item mt-2">{{ generos.name }}</li>
@@ -42,3 +42,18 @@ export default {
     },
 }
 </script>
+
+<style scoped lang="scss">
+.tarjeta{
+    border-radius: 5px;
+    box-shadow: 3px 5px 10px #8e5347;
+    background-color: whitesmoke; 
+}
+img {
+    padding: 5px;
+}
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+</style>
