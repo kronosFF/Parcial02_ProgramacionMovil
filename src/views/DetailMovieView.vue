@@ -138,8 +138,10 @@ export default {
     .card {
         border: 1px solid #e2e2e2;
         border-radius: 5px;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 3px 5px 10px #8e5347;
+        background-color: whitesmoke;
+        width: 500px;
+        height: 500px;
 
         &:hover {
             transform: translateY(-5px);
